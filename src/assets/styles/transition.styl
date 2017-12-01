@@ -1,0 +1,57 @@
+.fade-enter-active
+.fade-leave-active
+  transition opacity .5s
+.fade-enter-active
+.fade-leave-active
+  opacity 0
+
+.fade-left-enter-active
+.fade-left-leave-active
+  transition opacity transform .3s
+.fade-left-enter
+.fade-left-leave-to
+  opacity 0
+  transform translate3D(-100%, 0, 0)
+
+.toast-enter-active
+  transition all .1s cubic-bezier(0, 1, 0, 1)
+.toast-enter
+  opacity .3
+  transform translate3d(0, 20px, 0)
+
+.confirm-enter-active
+.confirm-leave-active
+  transition all .1s cubic-bezier(0, 1, 0, 1)
+.confirm-enter
+.confirm-leave-to
+  opacity .4
+  transform scale3d(.6,.6,.6)
+
+.popup-right-enter-active
+.popup-right-leave-active
+  transition all .2s ease-in
+.popup-right-enter
+.popup-right-leave-to
+  transform translate3d(100%, 0, 0)
+
+.slide-left-enter-active
+.slide-left-leave-active
+.slide-right-enter-active
+.slide-right-leave-active
+  transition transform .3s
+.slide-left-leave
+  transform translate3d(0, 0, 0)
+.slide-left-leave-to
+  transform translate3d(-100%, 0, 0)
+.slide-left-enter
+  transform translate3d(100%, 0, 0)
+.slide-left-enter-to
+  transform translate3d(0, 0, 0)
+.slide-right-leave
+  transform translate3d(0, 0, 0)
+.slide-right-leave-to
+  transform translate3d(100%, 0, 0)
+.slide-right-enter
+  transform translate3d(-100%, 0, 0)
+.slide-right-enter-to
+  transform translate3d(0, 0, 0)

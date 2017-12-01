@@ -1,0 +1,29 @@
+/**
+ * 文字
+ */
+@import './variable.styl'
+.text-left
+  text-align left
+.text-center
+  text-align center
+.text-right
+  text-align right
+
+.text-primary
+  color $color-primary
+.text-highlight
+  color $color-highlight
+.text-default
+  color $color-text-default
+.text-secondary
+  color $color-text-secondary
+.text-grey
+  color $color-text-grey
+.text-disabled
+  color $color-text-disabled
+.text-white
+  color #fff
+
+for size in 10 12 14 16 18 20 24
+  .font-{size}
+    font-size: size px

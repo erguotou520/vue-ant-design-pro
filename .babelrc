@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false
+    }],
+    "stage-2"
+  ],
+  "plugins": ["transform-runtime", "lodash", ["import", {
+    "libraryName": "iview",
+    "libraryDirectory": "src/components"
+  }]],
+  "comments": false
+}
