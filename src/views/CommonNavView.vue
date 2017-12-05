@@ -1,9 +1,11 @@
 <template>
   <div class="flex flex-1 flex-row" :class="{'app-collapsed': menuCollapsed}">
     <app-menu :collapsed="menuCollapsed"></app-menu>
-    <div class="flex-1">
+    <div class="flex-1 flex flex-column">
       <app-header :collapsed="menuCollapsed" @toggle="menuCollapsed=!menuCollapsed"></app-header>
-      <router-view></router-view>
+      <div class="flex flex-1 px-2 py-2">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>

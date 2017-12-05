@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="flex flex-column">
+  <div id="app" class="flex flex-column over-hide">
     <router-view></router-view>
   </div>
 </template>

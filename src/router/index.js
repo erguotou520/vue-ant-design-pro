@@ -11,6 +11,22 @@ const routes = [
     path: '/',
     component: CommonNavView,
     children: []
+  }, {
+    path: '/auth',
+    component: resolve => import('@/views/AuthView').then(resolve),
+    children: [{
+      path: 'login',
+      component: resolve => import('@/views/auth/Login').then(resolve),
+      extra: { skipAuth: true }
+    }, {
+      path: 'register',
+      component: resolve => import('@/views/auth/Register').then(resolve),
+      extra: { skipAuth: true }
+    }, {
+      path: 'register-result',
+      component: resolve => import('@/views/auth/RegisterResult').then(resolve),
+      extra: { skipAuth: true }
+    }]
   }
 ]
 
@@ -34,7 +50,7 @@ menus.forEach(menu => {
   }
 })
 
-console.log(routes)
+console.log('已加载的路由', routes)
 
 const router = new VueRouter({
   mode: 'history',

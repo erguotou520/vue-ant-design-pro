@@ -1,4 +1,8 @@
 import Vue from 'vue'
+import clickoutside from 'iview/src/directives/clickoutside'
+import AppPage from './AppPage'
+import 'iview/dist/styles/iview.css'
+
 import {
   Alert,
   AutoComplete,
@@ -44,10 +48,6 @@ import {
 
 import { Row, Col } from 'iview/src/components/grid'
 import { Select, Option, OptionGroup } from 'iview/src/components/select'
-
-import clickoutside from 'iview/src/directives/clickoutside'
-
-import 'iview/dist/styles/iview.css'
 
 const components = {
   Alert,
@@ -112,7 +112,9 @@ const components = {
 }
 
 Object.keys(components).forEach(key => {
-  Vue.component('i' + components[key].name, components[key])
+  console.log('i' + key)
+  Vue.component('i' + key, components[key])
 })
 
+Vue.component('AppPage', AppPage)
 Vue.directive('clickoutside', clickoutside)

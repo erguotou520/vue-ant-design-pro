@@ -99,22 +99,6 @@ export default [
       }
     ]
   }, {
-    title: '账户',
-    icon: 'android-person',
-    name: 'account',
-    children: [
-      {
-        title: '登录',
-        name: 'login'
-      }, {
-        title: '注册',
-        name: 'register'
-      }, {
-        title: '注册结果',
-        name: 'register{result'
-      }
-    ]
-  }, {
     title: '项目地址',
     icon: 'social-github',
     href: 'https://github.com/erguotou520/vue-ant-design-pro'
