@@ -1,8 +1,8 @@
 <template>
   <div class="app-footer px-2">
     <div class="links text-center">
-      <a class="text-secondary mr-2" href="/">帮助</a>
-      <a class="text-secondary mr-2" href="/">隐私</a>
+      <a class="text-secondary mr-4" href="/">帮助</a>
+      <a class="text-secondary mr-4" href="/">隐私</a>
       <a class="text-secondary" href="/">条款</a>
     </div>
     <div class="copyright mt-1 text-secondary text-center">

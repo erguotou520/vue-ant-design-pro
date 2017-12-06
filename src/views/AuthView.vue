@@ -6,7 +6,7 @@
         Vue Ant Design Pro
       </a>
     </h1>
-    <h3 class="text-secondary weight-400">Vue Ant Design Pro是完全模仿Ant Design Pro的项目</h3>
+    <h3 class="text-secondary mt-1 weight-400">Vue Ant Design Pro是完全模仿Ant Design Pro的项目</h3>
     <router-view></router-view>
     <global-footer></global-footer>
   </div>
