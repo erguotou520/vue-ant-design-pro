@@ -1,10 +1,8 @@
 import Vue from 'vue'
-import Validation from 'simple-vue-validator'
 import App from './App'
 import router from './router'
 import './components'
 
-Vue.use(Validation)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

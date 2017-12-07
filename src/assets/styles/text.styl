@@ -24,8 +24,9 @@
 .text-white
   color #fff
 
-.weight-400
-  font-weight 400
+for weight in 400 700
+  .weight-{weight}
+    font-weight weight
 
 for size in 10 12 14 16 18 20 24 28 30
   .font-{size}

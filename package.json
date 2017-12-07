@@ -13,7 +13,7 @@
   "dependencies": {
     "iview": "^2.7.3",
     "lodash": "^4.17.4",
-    "simple-vue-validator": "^0.14.1",
+    "vtc": "^0.0.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

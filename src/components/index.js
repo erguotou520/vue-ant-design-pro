@@ -112,7 +112,9 @@ const components = {
 }
 
 Object.keys(components).forEach(key => {
-  console.log('i' + key)
+  if (process.env.NODE !== 'production') {
+    console.log('i' + key)
+  }
   Vue.component('i' + key, components[key])
 })
 

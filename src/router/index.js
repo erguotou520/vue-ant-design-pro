@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import CommonNavView from '@/views/CommonNavView'
+import { param2Pascal } from 'vtc'
 // import store from '../store'
 import menus from '../menus'
 
@@ -9,6 +10,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: '/dashboard/analysis',
     component: CommonNavView,
     children: []
   }, {
@@ -37,7 +39,11 @@ menus.forEach(menu => {
         routes[0].children.push({
           path: `/${menu.name}/${subMenu.name}`,
           // /views/{menu.name}/index.vue
-          component: resolve => import('@/views/' + menu.name + '/' + subMenu.name).then(resolve)
+          component: resolve => {
+            // 文件名符合PascalCase风格，路由符合param-case风格
+            const File = param2Pascal(subMenu.name)
+            import('@/views/' + menu.name + '/' + File).then(resolve)
+          }
         })
       })
     } else {
@@ -50,7 +56,9 @@ menus.forEach(menu => {
   }
 })
 
-console.log('已加载的路由', routes)
+if (process.env.NODE !== 'production') {
+  console.log('已加载的路由', routes)
+}
 
 const router = new VueRouter({
   mode: 'history',

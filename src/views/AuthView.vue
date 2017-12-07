@@ -32,6 +32,11 @@ export default {
     this.script = script
   },
   beforeDestroy () {
+    const l = document.getElementsByTagName('script')
+    const canvasNest = document.getElementById('c_n' + l.length)
+    if (canvasNest) {
+      canvasNest.remove()
+    }
     if (this.script) {
       this.script.remove()
     }

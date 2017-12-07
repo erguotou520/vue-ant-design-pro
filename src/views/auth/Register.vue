@@ -50,15 +50,31 @@ export default {
       rules: {
         email: [
           { required: true, message: '请输入邮箱' },
-          { type: 'email', message: '请输入正确的邮箱地址' }
+          { type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur' }
         ],
-        password: { required: true, message: '请输入密码' },
-        rePassword: [
-          { required: true, message: '请再次输入密码' },
-          { validator: (rule, value, callback) => {
-            callback(value === this.form.password ? null : new Error('2次密码不一致'))
-          } }
-        ],
+        password: {
+          validator: (rule, value, callback) => {
+            if (!value || value.length < 6) {
+              callback(new Error('请输入至少6位的密码，区分大小写'))
+            } else {
+              if (this.form.rePassword) {
+                this.$refs.form.validateField('rePassword')
+              }
+              callback()
+            }
+          }, trigger: 'blur'
+        },
+        rePassword: {
+          validator: (rule, value, callback) => {
+            if (!value) {
+              callback('请再次输入密码')
+            } else if (value === this.form.password) {
+              callback()
+            } else {
+              callback(new Error('2次密码不一致'))
+            }
+          }, trigger: 'blur'
+        },
         phone: [
           { required: true, message: '请输入手机号' },
           { pattern: PHONE_REGEX, message: '请输入正确的手机号码', trigger: 'blur' }
@@ -74,7 +90,7 @@ export default {
     submit () {
       this.$refs.form.validate(valid => {
         if (valid) {
-          console.log('register')
+          this.$router.push('/auth/register-result')
         }
       })
     }

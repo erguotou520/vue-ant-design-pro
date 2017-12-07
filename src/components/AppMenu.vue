@@ -76,7 +76,7 @@ export default {
         props: {
           theme: 'dark',
           activeName: this.$route.path,
-          openNames: this.openNames,
+          openNames: this.openMenus,
           width: 'auto'
         }
       }, subMenus)
@@ -114,7 +114,12 @@ export default {
   .app-icon h1
   .menu-text
   .ivu-menu-submenu-title-icon
+  .ivu-menu-opened .ivu-menu
     display none
+  .ivu-menu > .ivu-menu-item
+    text-align center
+    .menu-icon
+      margin-right 0
 </style>
 <!-- <template>
   <div class="app-layout-slider" :style="{width}">
