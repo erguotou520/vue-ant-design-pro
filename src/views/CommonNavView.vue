@@ -3,7 +3,7 @@
     <app-menu :collapsed="menuCollapsed"></app-menu>
     <div class="flex-1 flex flex-column">
       <app-header :collapsed="menuCollapsed" @toggle="menuCollapsed=!menuCollapsed"></app-header>
-      <div class="flex flex-1 px-2 py-2">
+      <div class="flex flex-1 px-2 py-2 .over-hide scroll-y">
         <router-view></router-view>
       </div>
     </div>

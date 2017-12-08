@@ -86,22 +86,31 @@ export default {
 </script>
 <style lang="stylus">
 @import '../assets/styles/variable'
+$menu-bg-color = #001529
 .app-layout-slider
   min-height 100vh
-  background-color #495060
   box-shadow 2px 0 6px rgba(0, 21, 41, 0.35)
+  background-color $menu-bg-color
   transition width .3s
   .app-icon
     height $header-height
     font-size 20px
     font-family 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif
     font-weight 600
-    background-color darken(#495060, 20%)
+    background-color #002140
     img
       max-width 32px
       max-height @max-width
       width 100%
       height 100%
+  .ivu-menu-dark
+  .ivu-menu-dark .ivu-menu-opened
+  .ivu-menu-dark .ivu-menu-opened .ivu-menu-submenu-title
+    background-color $menu-bg-color
+  .ivu-menu-dark .ivu-menu-opened .ivu-menu-submenu-title
+    color rgba(#fff, .5)
+  .ivu-menu-dark .ivu-menu-item-active .ivu-menu-submenu-title
+    color #fff
   .ivu-icon
     min-width 14px
     font-size 16px

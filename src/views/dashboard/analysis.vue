@@ -2,27 +2,116 @@
   <app-page name="dashboard-analysis">
     <i-row :gutter="24">
       <i-col v-for="n in 4" :key="n" :md="{span:6}" :xs="{span:12}" class="mb-3">
-        <div class="card flex flex-jc-center flex-ai-center bg-white px-2 py-2" style="height: 182px;">
+        <i-card dis-hover :bordered="false" style="height: 182px;">
           卡片{{n}}
-        </div>
+        </i-card>
       </i-col>
     </i-row>
-    <div class="card bg-white px-2 py-2 mb-3">
-      123
-    </div>
+    <i-card class="mb-3" dis-hover :bordered="false">
+      <i-tabs>
+        <i-tab-pane label="销售额">
+          <div style="height:328px">销售额卡片</div>
+        </i-tab-pane>
+        <i-tab-pane label="访问量">
+          <div style="height:328px">访问量卡片</div>
+        </i-tab-pane>
+        <div slot="extra" class="filter">
+          <a href @click.prevent="setFilterToToday" class="text-secondary">今日</a>
+          <a href @click.prevent="setFilterToWeek" class="text-secondary ml-2">本周</a>
+          <a href @click.prevent="setFilterToMonth" class="text-secondary ml-2">本月</a>
+          <a href @click.prevent="setFilterToYear" class="text-secondary ml-2">今年</a>
+          <i-date-picker class="ml-2" v-model="filterDate" format="yyyy-MM-dd"
+            placement="bottom-end" type="daterange"
+            placeholder="请选择时间间隔" :editable="false"></i-date-picker>
+        </div>
+      </i-tabs>
+    </i-card>
+    <i-row :gutter="24">
+      <i-col :md="{span:12}" :sm="{span:24}">
+        <i-card dis-hover :bordered="false">
+          <span slot="title">线上热门搜索</span>
+          <div style="height:400px"></div>
+          <i-page class="text-right" size="small" :total="120"></i-page>
+        </i-card>
+      </i-col>
+      <i-col :md="{span:12}" :sm="{span:24}">
+        <i-card dis-hover :bordered="false">
+          <div slot="title" class="flex flex-jc-between">
+            <span>销售额类别占比</span>
+            <i-radio-group v-model="channelFilter" type="button">
+              <i-radio label="all">全部</i-radio>
+              <i-radio label="online">线上</i-radio>
+              <i-radio label="offline">线下</i-radio>
+            </i-radio-group>
+          </div>
+          <div style="height:406px"></div>
+        </i-card>
+      </i-col>
+    </i-row>
+    <global-footer :links="links" style="position:relative"></global-footer>
   </app-page>
 </template>
 <script>
+import GlobalFooter from '@/components/GlobalFooter'
 export default {
-  name: '',
-  props: {},
   data () {
     return {
-
+      filterDate: [],
+      channelFilter: 'all',
+      links: [
+        { text: 'Pro 首页', href: '/' },
+        { text: 'Github', href: 'https://github.com/erguotou520/vue-ant-design-pro' },
+        { text: 'Ant Design', href: 'http://ant.design/' }
+      ]
     }
   },
+  components: { GlobalFooter },
   methods: {
-
+    edgeDateRange (from, to) {
+      from.setHours(0)
+      from.setMinutes(0)
+      from.setSeconds(0)
+      to.setHours(23)
+      from.setMinutes(59)
+      from.setSeconds(59)
+      return [from, to]
+    },
+    setFilterToToday () {
+      this.filterDate = this.edgeDateRange(new Date(), new Date())
+    },
+    setFilterToWeek () {
+      const from = new Date()
+      const to = new Date()
+      const day = from.getDay()
+      // 周一到周日
+      from.setDate(from.getDate() - day + 1)
+      to.setDate(to.getDate() + 7 - day)
+      this.filterDate = this.edgeDateRange(from, to)
+    },
+    setFilterToMonth () {
+      const from = new Date()
+      const to = new Date()
+      // 1号到31号
+      from.setDate(1)
+      to.setMonth(to.getMonth() + 1)
+      to.setDate(0)
+      this.filterDate = this.edgeDateRange(from, to)
+    },
+    setFilterToYear () {
+      const from = new Date()
+      const to = new Date()
+      // 周一到周日
+      from.setMonth(0)
+      from.setDate(1)
+      to.setFullYear(to.getFullYear() + 1)
+      to.setMonth(0)
+      to.setDate(1)
+      to.setDate(0)
+      this.filterDate = this.edgeDateRange(from, to)
+    }
+  },
+  created () {
+    this.setFilterToToday()
   }
 }
 </script>
