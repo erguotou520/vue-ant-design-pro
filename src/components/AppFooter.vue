@@ -12,13 +12,22 @@
 <script>
 export default {
   props: {
-    links: Array
+    links: {
+      type: Array,
+      default: () => {
+        return [
+          { text: 'Pro 首页', href: '/' },
+          { text: 'Github', href: 'https://github.com/erguotou520/vue-ant-design-pro' },
+          { text: 'Ant Design', href: 'http://ant.design/' }
+        ]
+      }
+    }
   }
 }
 </script>
 <style lang="stylus">
 .app-footer
-  position absolute
+  position relative
   bottom 0
   left 0
   width 100%

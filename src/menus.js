@@ -12,7 +12,7 @@ export default [
         name: 'monitor'
       }, {
         title: '工作台',
-        name: 'worksplace'
+        name: 'workspace'
       }
     ]
   }, {
@@ -22,13 +22,13 @@ export default [
     children: [
       {
         title: '基础表单',
-        name: 'basic{form'
+        name: 'basic-form'
       }, {
         title: '分步表单',
-        name: 'step{form'
+        name: 'step-form'
       }, {
         title: '高级表单',
-        name: 'advanced{form'
+        name: 'advanced-form'
       }
     ]
   }, {
@@ -38,19 +38,19 @@ export default [
     children: [
       {
         title: '查询表格',
-        name: 'table{list'
+        name: 'table-list'
       }, {
         title: '标准列表',
-        name: 'basic{list'
+        name: 'basic-list'
       }, {
         title: '卡片列表',
-        name: 'card{list'
+        name: 'card-list'
       }, {
         title: '搜索列表(项目)',
-        name: 'cover{card{list'
+        name: 'cover-card-list'
       }, {
         title: '搜索列表(应用)',
-        name: 'filter{card{list'
+        name: 'filter-card-list'
       }, {
         title: '搜索列表(文章)',
         name: 'search'

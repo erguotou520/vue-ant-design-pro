@@ -1,11 +1,12 @@
 <template>
   <div class="flex flex-1 flex-row" :class="[{'app-collapsed': menuCollapsed},`screen-${screenSize}`]">
     <app-menu :collapsed="menuCollapsed"></app-menu>
-    <div class="flex-1 flex flex-column">
+    <div class="pos-r flex-1 flex flex-column">
       <app-header :collapsed="menuCollapsed" @toggle="menuCollapsed=!menuCollapsed"></app-header>
       <div class="flex flex-1 px-2 py-2 .over-hide scroll-y">
         <router-view></router-view>
       </div>
+      <i-spin v-if="$store.routerLoading" class="router-spin" size="large" fix></i-spin>
     </div>
   </div>
 </template>
@@ -45,7 +46,10 @@ export default {
       this.menuCollapsed = map !== SCREEN_SIZE_MAP[0]
     }, 500)
   },
-  created () {
+  mounted () {
+    this.$nextTick(() => {
+      this.onResize()
+    })
     window.addEventListener('resize', this.onResize)
   },
   beforeDestroyed () {
@@ -54,4 +58,12 @@ export default {
 }
 </script>
 <style lang="stylus">
+@import '../assets/styles/variable'
+.router-spin
+  top 5rem
+  left 1rem
+  right 1rem
+  bottom 1rem
+  width auto
+  height auto
 </style>

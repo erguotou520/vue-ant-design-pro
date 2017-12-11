@@ -69,10 +69,11 @@ export default {
       h('div', { staticClass: 'app-icon flex' }, [
         h('router-link', { staticClass: 'flex flex-1 flex-row flex-jc-center flex-ai-center text-white', props: { to: '/' }}, [
           h('img', { attrs: { src: logo }}),
-          h('h1', { staticClass: 'ml-2 font-20' }, 'Vue Ant Pro')
+          h('h1', { staticClass: 'ml-2 font-20 text-white' }, 'Vue Ant Pro')
         ])
       ]),
       h('i-menu', {
+        staticClass: 'mt-2',
         props: {
           theme: 'dark',
           activeName: this.$route.path,
@@ -92,6 +93,7 @@ $menu-bg-color = #001529
   box-shadow 2px 0 6px rgba(0, 21, 41, 0.35)
   background-color $menu-bg-color
   transition width .3s
+  // logo
   .app-icon
     height $header-height
     font-size 20px
@@ -103,6 +105,7 @@ $menu-bg-color = #001529
       max-height @max-width
       width 100%
       height 100%
+  // 背景色和菜单颜色覆盖
   .ivu-menu-dark
   .ivu-menu-dark .ivu-menu-opened
   .ivu-menu-dark .ivu-menu-opened .ivu-menu-submenu-title
@@ -111,21 +114,44 @@ $menu-bg-color = #001529
     color rgba(#fff, .5)
   .ivu-menu-dark .ivu-menu-item-active .ivu-menu-submenu-title
     color #fff
+  // 菜单图标
   .ivu-icon
     min-width 14px
     font-size 16px
+
+// 菜单被收起时
 .app-collapsed .app-layout-slider
+  // 展示整个图标
   .ivu-menu-submenu-title
     padding-left 32px
     padding-right 32px
   .menu-icon
     font-size 20px
+  // 隐藏内容
   .app-icon h1
   .menu-text
-  .ivu-menu-submenu-title-icon
   .ivu-menu-opened .ivu-menu
+  .ivu-menu-submenu-title-icon
     display none
-  .ivu-menu > .ivu-menu-item
+  // 鼠标hover时显示子菜单
+  .ivu-menu-submenu
+    position relative
+    &:hover
+      .ivu-menu
+        position absolute
+        display block !important
+        top 0
+        left 82px
+        padding-top 8px
+        padding-bottom 8px
+        width auto
+        background-color $menu-bg-color
+        border-radius 4px
+        .ivu-menu-item
+          padding 8px 12px
+          width 10rem
+  // 没有子菜单的菜单
+  > .ivu-menu > .ivu-menu-item
     text-align center
     .menu-icon
       margin-right 0

@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import clickoutside from 'iview/src/directives/clickoutside'
 import AppPage from './AppPage'
+import AppFooter from './AppFooter'
 import 'iview/dist/styles/iview.css'
 
 import {
   Alert,
   AutoComplete,
   Avatar,
-  BackTop,
   Badge,
   Button,
   Card,
@@ -22,7 +22,6 @@ import {
   Icon,
   Input,
   InputNumber,
-  LoadingBar,
   Menu,
   Message,
   Modal,
@@ -53,7 +52,6 @@ const components = {
   Alert,
   AutoComplete,
   Avatar,
-  BackTop,
   Badge,
   Button,
   ButtonGroup: Button.Group,
@@ -75,7 +73,6 @@ const components = {
   Icon,
   Input,
   InputNumber,
-  LoadingBar,
   Menu,
   MenuGroup: Menu.Group,
   MenuItem: Menu.Item,
@@ -118,5 +115,10 @@ Object.keys(components).forEach(key => {
   Vue.component('i' + key, components[key])
 })
 
+Vue.prototype.$Message = Message
+Vue.prototype.$Notice = Notice
+Vue.prototype.$Spin = Spin
+
 Vue.component('AppPage', AppPage)
+Vue.component('AppFooter', AppFooter)
 Vue.directive('clickoutside', clickoutside)

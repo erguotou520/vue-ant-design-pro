@@ -8,13 +8,11 @@
     </h1>
     <h3 class="text-secondary mt-1 weight-400">Vue Ant Design Pro是完全模仿Ant Design Pro的项目</h3>
     <router-view></router-view>
-    <global-footer :links="links"></global-footer>
+    <app-footer :links="links" class="absolute"></app-footer>
   </div>
 </template>
 <script>
-import GlobalFooter from '@/components/GlobalFooter'
 export default {
-  components: { GlobalFooter },
   data () {
     return {
       script: null,

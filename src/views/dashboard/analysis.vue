@@ -1,7 +1,7 @@
 <template>
   <app-page name="dashboard-analysis">
     <i-row :gutter="24">
-      <i-col v-for="n in 4" :key="n" :md="{span:6}" :xs="{span:12}" class="mb-3">
+      <i-col v-for="n in 4" :key="n" :md="6" :xs="12" class="mb-3">
         <i-card dis-hover :bordered="false" style="height: 182px;">
           卡片{{n}}
         </i-card>
@@ -27,14 +27,14 @@
       </i-tabs>
     </i-card>
     <i-row :gutter="24">
-      <i-col :md="{span:12}" :sm="{span:24}">
+      <i-col :md="12" :sm="24">
         <i-card dis-hover :bordered="false">
           <span slot="title">线上热门搜索</span>
           <div style="height:400px"></div>
           <i-page class="text-right" size="small" :total="120"></i-page>
         </i-card>
       </i-col>
-      <i-col :md="{span:12}" :sm="{span:24}">
+      <i-col class="md-mt-3" :md="12" :sm="24">
         <i-card dis-hover :bordered="false">
           <div slot="title" class="flex flex-jc-between">
             <span>销售额类别占比</span>
@@ -48,24 +48,16 @@
         </i-card>
       </i-col>
     </i-row>
-    <global-footer :links="links" style="position:relative"></global-footer>
   </app-page>
 </template>
 <script>
-import GlobalFooter from '@/components/GlobalFooter'
 export default {
   data () {
     return {
       filterDate: [],
-      channelFilter: 'all',
-      links: [
-        { text: 'Pro 首页', href: '/' },
-        { text: 'Github', href: 'https://github.com/erguotou520/vue-ant-design-pro' },
-        { text: 'Ant Design', href: 'http://ant.design/' }
-      ]
+      channelFilter: 'all'
     }
   },
-  components: { GlobalFooter },
   methods: {
     edgeDateRange (from, to) {
       from.setHours(0)

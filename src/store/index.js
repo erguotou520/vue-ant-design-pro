@@ -1,16 +1,8 @@
 import Vue from 'vue'
-import { merge } from '../utils'
+import { merge } from 'vtc'
 const bus = new Vue({
   data: {
-    toast: {
-      show: false,
-      message: ''
-    },
-    confirm: {
-      show: false,
-      title: '',
-      content: ''
-    },
+    routerLoading: false,
     user: {
       id: '',
       name: '',
@@ -20,11 +12,11 @@ const bus = new Vue({
     }
   },
   methods: {
-    updateToast (toastConfig) {
-      merge(this.toast, toastConfig)
+    updateRouterLoading (show) {
+      this.routerLoading = show
     },
-    updateConfirm (confirmConfig) {
-      merge(this.confirm, confirmConfig)
+    updateUser (user) {
+      merge(this.user, user)
     }
   }
 })

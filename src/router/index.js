@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import CommonNavView from '@/views/CommonNavView'
 import { param2Pascal } from 'vtc'
-// import store from '../store'
+import store from '../store'
 import menus from '../menus'
 
 Vue.use(VueRouter)
@@ -19,16 +19,19 @@ const routes = [
     children: [{
       path: 'login',
       component: resolve => import('@/views/auth/Login').then(resolve),
-      extra: { skipAuth: true }
+      meta: { skipAuth: true }
     }, {
       path: 'register',
       component: resolve => import('@/views/auth/Register').then(resolve),
-      extra: { skipAuth: true }
+      meta: { skipAuth: true }
     }, {
       path: 'register-result',
       component: resolve => import('@/views/auth/RegisterResult').then(resolve),
-      extra: { skipAuth: true }
+      meta: { skipAuth: true }
     }]
+  }, {
+    path: '*',
+    redirect: '/exception/404'
   }
 ]
 
@@ -42,7 +45,7 @@ menus.forEach(menu => {
           component: resolve => {
             // 文件名符合PascalCase风格，路由符合param-case风格
             const File = param2Pascal(subMenu.name)
-            console.log(File)
+            console.log('Load views/' + menu.name + '/' + File)
             import('@/views/' + menu.name + '/' + File).then(resolve)
           }
         })
@@ -67,7 +70,8 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach(function (to, from, next) {
+router.beforeEach((to, from, next) => {
+  store.updateRouterLoading(true)
   next()
   // if (to.meta.skipAuth) {
   //   next()
@@ -83,6 +87,10 @@ router.beforeEach(function (to, from, next) {
   //     path: '/auth/login'
   //   })
   // }
+})
+
+router.afterEach((to, from) => {
+  store.updateRouterLoading(false)
 })
 
 export default router
