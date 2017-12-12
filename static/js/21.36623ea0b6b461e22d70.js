@@ -1,0 +1,2 @@
+webpackJsonp([21],{wDCY:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={render:function(){var e=this.$createElement,t=this._self._c||e;return t("app-page",{attrs:{name:"dashboard-workspace"}},[t("p",[this._v("这个页面暂时没做")])])},staticRenderFns:[]},a=n("VU/8")(null,r,!1,null,null,null);t.default=a.exports}});
+//# sourceMappingURL=21.36623ea0b6b461e22d70.js.map

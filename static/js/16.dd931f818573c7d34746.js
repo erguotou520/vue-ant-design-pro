@@ -1,0 +1,2 @@
+webpackJsonp([16],{I2Pn:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var l={render:function(){var e=this.$createElement,n=this._self._c||e;return n("app-page",[n("p",[this._v("这个页面暂时没做")])])},staticRenderFns:[]},r=t("VU/8")(null,l,!1,null,null,null);n.default=r.exports}});
+//# sourceMappingURL=16.dd931f818573c7d34746.js.map
