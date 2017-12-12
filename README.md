@@ -21,4 +21,4 @@ npm run build
 [Online demo](https://pro.vue.erguotou.me)
 
 ## Donate
-[Buy me a coffee](github.com/erguotou520/donate)
+[Buy me a coffee](https://github.com/erguotou520/donate)
