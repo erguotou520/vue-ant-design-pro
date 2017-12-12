@@ -45,8 +45,8 @@ menus.forEach(menu => {
           component: resolve => {
             // 文件名符合PascalCase风格，路由符合param-case风格
             const File = param2Pascal(subMenu.name)
-            console.log('Load views/' + menu.name + '/' + File)
-            import('@/views/' + menu.name + '/' + File).then(resolve)
+            console.log('Load views/' + menu.name + '/' + File + '.vue')
+            import('@/views/' + menu.name + '/' + File + '.vue').then(resolve)
           }
         })
       })
@@ -54,7 +54,7 @@ menus.forEach(menu => {
       routes[0].children.push({
         path: '/' + menu.name,
         // /views/{menu.name}/index.vue
-        component: resolve => import('@/views/' + menu.name + '/index').then(resolve)
+        component: resolve => import('@/views/' + menu.name + '/index.vue').then(resolve)
       })
     }
   }
