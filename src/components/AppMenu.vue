@@ -63,7 +63,7 @@ export default {
       }
     })
     return h('div', {
-      staticClass: 'app-layout-slider pos-r',
+      staticClass: 'app-layout-slider flex flex-column pos-r',
       style: { width: this.width }
     }, [
       h('div', { staticClass: 'app-icon flex' }, [
@@ -72,15 +72,17 @@ export default {
           h('h1', { staticClass: 'ml-2 font-20 text-white' }, 'Vue Ant Pro')
         ])
       ]),
-      h('i-menu', {
-        staticClass: 'mt-2',
-        props: {
-          theme: 'dark',
-          activeName: this.$route.path,
-          openNames: this.openMenus,
-          width: 'auto'
-        }
-      }, subMenus)
+      h('div', { staticClass: 'flex-1 scroll-y' }, [
+        h('i-menu', {
+          staticClass: 'mt-2',
+          props: {
+            theme: 'dark',
+            activeName: this.$route.path,
+            openNames: this.openMenus,
+            width: 'auto'
+          }
+        }, subMenus)
+      ])
     ])
   }
 }
@@ -118,7 +120,8 @@ $menu-bg-color = #001529
   .ivu-icon
     min-width 14px
     font-size 16px
-
+  ::-webkit-scrollbar-thumb
+    background-color #595d61
 // 菜单被收起时
 .app-collapsed .app-layout-slider
   // 展示整个图标
