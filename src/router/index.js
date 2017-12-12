@@ -45,8 +45,8 @@ menus.forEach(menu => {
           component: resolve => {
             // 文件名符合PascalCase风格，路由符合param-case风格
             const File = param2Pascal(subMenu.name)
-            console.log('Load views/' + menu.name + '/' + File + '.vue')
-            import('@/views/' + menu.name + '/' + File + '.vue').then(resolve)
+            console.log(`@/views/${menu.name}/${File}.vue`)
+            import(`../views/${menu.name}/${File}.vue`).then(resolve)
           }
         })
       })
